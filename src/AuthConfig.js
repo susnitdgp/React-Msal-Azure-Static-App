@@ -2,7 +2,7 @@ export const msalConfig = {
   auth: {
     clientId: "d923d979-d308-4de8-b939-4ce0435521c6",
     authority: "https://login.microsoftonline.com/112f2dfc-b078-4610-b12a-09ab93a6c933", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-    redirectUri: "https://react-7cuyla.stackblitz.io",
+    redirectUri: "https://polite-coast-0c9a10c10.1.azurestaticapps.net",
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored
