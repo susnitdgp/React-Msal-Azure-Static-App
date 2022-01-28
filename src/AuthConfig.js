@@ -17,7 +17,7 @@ export const loginRequest = {
 
 
 export const storageRequest = {
-  scopes: ["https://storage.azure.com/user_impersonation"]
+  scopes: ["User.Read","https://storage.azure.com/user_impersonation"]
  };
 
 // Add the endpoints here for Microsoft Graph API services you'd like to use.
