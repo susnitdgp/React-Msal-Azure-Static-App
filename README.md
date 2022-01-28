@@ -1,4 +1,4 @@
-# react-7cuyla
+# Azure Static App
 
 # React basic
 
