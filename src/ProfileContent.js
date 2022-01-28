@@ -38,7 +38,7 @@ export const ProfileContent = () => {
             <p>Access Token Acquired! {accessToken}</p>
             
             :
-            <Button variant="secondary" onClick={RequestAccessToken}>Request Access Token</Button>
+            <Button type="primary" onClick={RequestAccessToken}>Request Access Token</Button>
 
             
         }

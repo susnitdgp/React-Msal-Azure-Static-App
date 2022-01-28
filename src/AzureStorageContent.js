@@ -1,7 +1,7 @@
 import React , { useState } from "react";
 import { useMsal } from "@azure/msal-react";
 import { storageRequest } from "./AuthConfig";
-import { Card } from 'antd';
+import { Card ,Button} from 'antd';
 
 
 export const AzureStorageContent = () => {
@@ -33,7 +33,7 @@ export const AzureStorageContent = () => {
       <h5 className="card-title">Welcome {name}</h5>
        
         {accessToken}
-        <Button variant="secondary" onClick={RequestAccessToken}>Request Access Token</Button>
+        <Button type="primary" onClick={RequestAccessToken}>Request Access Token</Button>
 
       </Card>
 
