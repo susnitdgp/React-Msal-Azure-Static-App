@@ -6,7 +6,7 @@ import {
   useMsal
 } from "@azure/msal-react";
 import { ProfileContent } from "./ProfileContent";
-
+import { AzureStorageContent } from "./AzureStorageContent";
 import { Layout, Menu, Divider, Button } from "antd";
 import {
   UserOutlined,
@@ -107,6 +107,9 @@ function App() {
               <AuthenticatedTemplate>
                 <p>You are signed in!</p>
                 <ProfileContent />
+
+                <AzureStorageContent/>
+
               </AuthenticatedTemplate>
               <Divider />
               <UnauthenticatedTemplate>

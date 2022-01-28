@@ -12,8 +12,13 @@ export const msalConfig = {
 
 // Add scopes here for ID token to be used at Microsoft identity platform endpoints.
 export const loginRequest = {
- scopes: ["User.Read","https://storage.azure.com/user_impersonation"]
+ scopes: ["User.Read"]
 };
+
+
+export const storageRequest = {
+  scopes: ["https://storage.azure.com/user_impersonation"]
+ };
 
 // Add the endpoints here for Microsoft Graph API services you'd like to use.
 export const graphConfig = {
