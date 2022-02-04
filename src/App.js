@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { PageLayout } from "./PageLayout";
 import {
   AuthenticatedTemplate,
@@ -21,7 +22,7 @@ import {
 import { Row, Col } from "antd";
 
 const { SubMenu } = Menu;
-const { Header, Content, Footer, Sider } = Layout;
+const {  Content, Footer, Sider } = Layout;
 
 function App() {
   return (
@@ -52,13 +53,10 @@ function App() {
               </Menu.ItemGroup>
             </SubMenu>
             <Menu.Item key="alipay">
-              <a
-                href="https://ant.design"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Navigation Four - Link
-              </a>
+              
+                
+                <Button type="primary" >Sign Out</Button>
+              
             </Menu.Item>
           </Menu>
         </Col>
@@ -84,25 +82,13 @@ function App() {
                 <Menu.Item key="3">option3</Menu.Item>
                 <Menu.Item key="4">option4</Menu.Item>
               </SubMenu>
-              <SubMenu key="sub2" icon={<LaptopOutlined />} title="subnav 2">
-                <Menu.Item key="5">option5</Menu.Item>
-                <Menu.Item key="6">option6</Menu.Item>
-                <Menu.Item key="7">option7</Menu.Item>
-                <Menu.Item key="8">option8</Menu.Item>
-              </SubMenu>
-              <SubMenu
-                key="sub3"
-                icon={<NotificationOutlined />}
-                title="subnav 3"
-              >
-                <Menu.Item key="9">option9</Menu.Item>
-                <Menu.Item key="10">option10</Menu.Item>
-                <Menu.Item key="11">option11</Menu.Item>
-                <Menu.Item key="12">option12</Menu.Item>
-              </SubMenu>
+              
+             
             </Menu>
           </Sider>
-          <Content style={{ padding: "0 24px", minHeight: 280 }}>
+          <Content style={{ padding: "0 24px", minHeight: 480 }}>
+
+
             <PageLayout>
               <AuthenticatedTemplate>
                 <p>You are signed in!</p>
@@ -110,12 +96,16 @@ function App() {
 
                 <AzureStorageContent/>
 
+
+
               </AuthenticatedTemplate>
               <Divider />
               <UnauthenticatedTemplate>
                 <p>You are not signed in! Please sign in.</p>
               </UnauthenticatedTemplate>
             </PageLayout>
+
+
           </Content>
         </Layout>
       </Content>

@@ -4,7 +4,7 @@ import { Button } from 'antd';
 
 
 function handleLogout(instance) {
-    instance.logoutPopup().catch(e => {
+    instance.logoutPopup({ postLogoutRedirectUri: "/", mainWindowRedirectUri: "/" }).catch(e => {
         console.error(e);
     });
 }

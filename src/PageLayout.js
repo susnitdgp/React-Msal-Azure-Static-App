@@ -9,6 +9,7 @@ import {  Divider} from 'antd';
  * Renders the navbar component with a sign-in button if a user is not authenticated
  */
 export const PageLayout = (props) => {
+    
     const isAuthenticated = useIsAuthenticated();
 
     return (
