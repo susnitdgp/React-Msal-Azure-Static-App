@@ -15,6 +15,8 @@ export const ProfileContent = () => {
 
   const name = accounts[0] && accounts[0].name;
 
+  const currentAccount = instance.getActiveAccount();
+
   function RequestAccessToken() {
     const request = {
         ...loginRequest,
@@ -34,6 +36,7 @@ export const ProfileContent = () => {
   return (
     <>
         <h5 className="card-title">Welcome {name}</h5>
+        <h4>{currentAccount.idTokenClaims['roles']}</h4>
         {accessToken ? 
             <p>Access Token Acquired! {accessToken}</p>
             
