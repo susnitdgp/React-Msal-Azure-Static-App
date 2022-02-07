@@ -3,7 +3,7 @@ import React from "react";
 import { useIsAuthenticated } from "@azure/msal-react";
 import { SignInButton } from "./SignInButtonPopup";
 import { SignOutButton } from "./SignOutButtonPopup";
-import {  Divider} from 'antd';
+import { Divider } from 'antd';
 
 /**
  * Renders the navbar component with a sign-in button if a user is not authenticated

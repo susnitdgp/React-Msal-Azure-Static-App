@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route,Switch,Link ,Prompt} from "react-router-dom";
+import {useHistory} from 'react-router-dom';
 import { PageLayout } from "./PageLayout";
 import { RouteGuard } from './RouteGuard';
 import { appRoles } from "./AuthConfig";
@@ -14,8 +15,6 @@ import  {AzureStorageContent} from "./AzureStorageContent";
 import { Layout, Menu, Divider, Button } from "antd";
 import {
   UserOutlined,
-  LaptopOutlined,
-  NotificationOutlined
 } from "@ant-design/icons";
 import {
   MailOutlined,
@@ -28,7 +27,12 @@ const { SubMenu } = Menu;
 const {  Content, Footer, Sider } = Layout;
 
 function App() {
+
+  const history = useHistory();
+  const handleMenuClick = () => history.push('/finance');
+
   return (
+    <Router>
     <Layout>
       <Row>
         <Col span={4}></Col>
@@ -79,11 +83,13 @@ function App() {
               defaultOpenKeys={["sub1"]}
               style={{ height: "100%" }}
             >
-              <SubMenu key="sub1" icon={<UserOutlined />} title="subnav 1">
-                <Menu.Item key="1">option1</Menu.Item>
-                <Menu.Item key="2">option2</Menu.Item>
-                <Menu.Item key="3">option3</Menu.Item>
-                <Menu.Item key="4">option4</Menu.Item>
+              <SubMenu key="sub1" icon={<UserOutlined />} title="Admin Menu">
+                <Menu.Item key="1"><Link to="/">Home</Link></Menu.Item>
+                <Menu.Item key="2"><Link to="/finance">Finance</Link></Menu.Item>
+                <Menu.Item key="3"><Link to="/project">Project Management</Link></Menu.Item>
+                <Menu.Item key="4"><Link to="/Re-cm">RE-CM</Link></Menu.Item>
+                <Menu.Item key="5"><Link to="/other">Other Menu</Link></Menu.Item>
+                <Menu.Item key="6" onClick={handleMenuClick} >Button Click</Menu.Item>
               </SubMenu>
               
              
@@ -92,25 +98,37 @@ function App() {
           <Content style={{ padding: "0 24px", minHeight: 480 }}>
 
           
+          <Switch>
           
+            <Route exact path="/">
+              <PageLayout>
+                <AuthenticatedTemplate>
+                  <p>You are signed in!</p>
+                  <ProfileContent />
 
+                </AuthenticatedTemplate>
+                <Divider />
+                <UnauthenticatedTemplate>
+                  <p>You are not signed in! Please sign in.</p>
+                </UnauthenticatedTemplate>
+              </PageLayout>
+ 
+            </Route>
+            <RouteGuard exact path="/finance" roles={[appRoles.Pradip_BPM_FileRead]}
+             component={TodoList}>
+               
+            </RouteGuard>
+            <Route exact path="/project" component={AzureStorageContent}>
+               
+            </Route>
+            <Route path="*">
+            <NoMatch />
+          </Route>
+           
+        </Switch>
 
-            <PageLayout>
-              <AuthenticatedTemplate>
-                <p>You are signed in!</p>
-                <ProfileContent />
-
-                <AzureStorageContent/>
-
-
-
-              </AuthenticatedTemplate>
-              <Divider />
-              <UnauthenticatedTemplate>
-                <p>You are not signed in! Please sign in.</p>
-              </UnauthenticatedTemplate>
-            </PageLayout>
-
+             
+          
 
           </Content>
         </Layout>
@@ -120,6 +138,16 @@ function App() {
         Sample Design @React UI
       </Footer>
     </Layout>
+    </Router>
+  );
+}
+
+
+function NoMatch() {
+  return (
+    <div>
+      <h2>No Match</h2>
+    </div>
   );
 }
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { MsalAuthenticationTemplate, useMsal } from "@azure/msal-react";
 import { InteractionStatus, InteractionType } from "@azure/msal-browser";
 
@@ -11,7 +12,7 @@ export const TodoList = () => {
 
     return (
         
-            <p>TODO LIST</p>
+            <p>Finance Page</p>
         
       )
 };
