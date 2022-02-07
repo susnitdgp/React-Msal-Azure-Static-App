@@ -89,7 +89,7 @@ function App() {
                 <Menu.Item key="3"><Link to="/project">Project Management</Link></Menu.Item>
                 <Menu.Item key="4"><Link to="/Re-cm">RE-CM</Link></Menu.Item>
                 <Menu.Item key="5"><Link to="/other">Other Menu</Link></Menu.Item>
-                <Menu.Item key="6" onClick={handleMenuClick} >Button Click</Menu.Item>
+                <Menu.Item disabled={true} key="6" onClick={handleMenuClick} >Button Click</Menu.Item>
               </SubMenu>
               
              
