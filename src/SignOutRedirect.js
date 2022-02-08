@@ -1,9 +1,10 @@
 import React from "react";
 import { useMsal } from "@azure/msal-react";
+import { Button } from 'antd';
 
 
 function handleLogout(instance) {
-    instance.logoutRedirect().catch(e => {
+    instance.logoutRedirect({ postLogoutRedirectUri: "/" }).catch(e => {
         console.error(e);
     });
 }

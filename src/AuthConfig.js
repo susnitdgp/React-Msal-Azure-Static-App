@@ -4,8 +4,10 @@ import { LogLevel } from "@azure/msal-browser";
 export const msalConfig = {
   auth: {
     clientId: "d923d979-d308-4de8-b939-4ce0435521c6",
-    authority: "https://login.microsoftonline.com/112f2dfc-b078-4610-b12a-09ab93a6c933", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
-    redirectUri: "https://react-7cuyla.stackblitz.io/",
+    authority: "https://login.microsoftonline.com/azuregoswami.com/", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
+    redirectUri: "https://react-7cuyla.stackblitz.io/", // You must register this URI on Azure Portal/App Registration. Defaults to window.location.origin
+    postLogoutRedirectUri: "https://react-7cuyla.stackblitz.io/", // Indicates the page to navigate after logout.
+    navigateToLoginRequestUrl: false, // If "true", will navigate back to the original request location before processing the auth code response.
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored

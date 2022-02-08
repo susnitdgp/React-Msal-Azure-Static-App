@@ -1,8 +1,8 @@
 import React from "react";
 
 import { useIsAuthenticated } from "@azure/msal-react";
-import { SignInButton } from "./SignInButtonPopup";
-import { SignOutButton } from "./SignOutButtonPopup";
+import { SignInButton } from "./SignInButtonRedirect";
+import { SignOutButton } from "./SignOutRedirect";
 import { Divider } from 'antd';
 
 /**

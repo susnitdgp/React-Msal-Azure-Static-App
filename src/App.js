@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom';
 import { PageLayout } from "./PageLayout";
 import { RouteGuard } from './RouteGuard';
 import { appRoles } from "./AuthConfig";
+import { SignInButton } from "./SignInButtonRedirect";
 import {
   AuthenticatedTemplate,
   UnauthenticatedTemplate,
@@ -110,6 +111,7 @@ function App() {
                 <Divider />
                 <UnauthenticatedTemplate>
                   <p>You are not signed in! Please sign in.</p>
+                    <SignInButton/>
                 </UnauthenticatedTemplate>
               </PageLayout>
  
