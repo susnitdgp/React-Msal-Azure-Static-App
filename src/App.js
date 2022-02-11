@@ -37,14 +37,14 @@ function App() {
   return (
     <Router>
     <Layout className="mainLayout">
-    <Header>
+    <Header style={{borderBottom: "1px solid #1890ff"}}>
         <AppHeader/>
     </Header>
 
       <Content >
         <Layout>
           
-          <Sider width={200} style={{ margin:"100px", }}>
+          <Sider width={200} style={{marginTop:"100px", }}>
             <Menu
               mode="inline"
               defaultSelectedKeys={["1"]}
@@ -63,7 +63,7 @@ function App() {
              
             </Menu>
           </Sider>
-          <Content style={{ padding: "0 24px", minHeight: 480 }}>
+          <Content style={{ marginTop:"100px",padding: "0 24px", minHeight: 480 }}>
 
           
           <Switch>

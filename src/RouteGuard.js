@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import { useMsal } from "@azure/msal-react";
+import { Empty } from 'antd';
 
 export const RouteGuard = ({ Component, ...props }) => {
 
@@ -31,9 +32,8 @@ export const RouteGuard = ({ Component, ...props }) => {
                     ?
                     <Route {...props} render={routeProps => <Component {...routeProps} />} />
                     :
-                    <div className="data-area-div">
-                        <h3>You are unauthorized to view this content.</h3>
-                    </div>
+                    <Empty description={false} />
+                    
             }
         </>
     );
