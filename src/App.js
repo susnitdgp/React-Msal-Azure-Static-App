@@ -5,6 +5,8 @@ import { PageLayout } from "./PageLayout";
 import { RouteGuard } from './RouteGuard';
 import { appRoles } from "./AuthConfig";
 import { SignInButton } from "./SignInButtonRedirect";
+import  AppHeader from "./Header";
+import  AppFooter from "./Footer";
 import {
   AuthenticatedTemplate,
   UnauthenticatedTemplate,
@@ -25,7 +27,7 @@ import {
 import { Row, Col } from "antd";
 
 const { SubMenu } = Menu;
-const {  Content, Footer, Sider } = Layout;
+const {  Header,Content, Footer, Sider } = Layout;
 
 function App() {
 
@@ -34,43 +36,10 @@ function App() {
 
   return (
     <Router>
-    <Layout>
-      <Row>
-        <Col span={4}></Col>
-
-        <Col span={16}>
-          <Menu selectedKeys="mail" mode="horizontal">
-            <Menu.Item key="mail" icon={<MailOutlined />}>
-              Navigation One
-            </Menu.Item>
-            <Menu.Item key="app" disabled icon={<AppstoreOutlined />}>
-              Navigation Two
-            </Menu.Item>
-            <SubMenu
-              key="SubMenu"
-              icon={<SettingOutlined />}
-              title="Navigation Three - Submenu"
-            >
-              <Menu.ItemGroup title="Item 1">
-                <Menu.Item key="setting:1">Option 1</Menu.Item>
-                <Menu.Item key="setting:2">Option 2</Menu.Item>
-              </Menu.ItemGroup>
-              <Menu.ItemGroup title="Item 2">
-                <Menu.Item key="setting:3">Option 3</Menu.Item>
-                <Menu.Item key="setting:4">Option 4</Menu.Item>
-              </Menu.ItemGroup>
-            </SubMenu>
-            <Menu.Item key="alipay">
-              
-                
-                <Button type="primary" >Sign Out</Button>
-              
-            </Menu.Item>
-          </Menu>
-        </Col>
-
-        <Col span={4}></Col>
-      </Row>
+    <Layout className="mainLayout">
+    <Header>
+        <AppHeader/>
+      </Header>
 
       <Content style={{ padding: "0 50px" }}>
         <Layout
@@ -137,7 +106,7 @@ function App() {
       </Content>
 
       <Footer style={{ textAlign: "center" }}>
-        Sample Design @React UI
+        <AppFooter/>
       </Footer>
     </Layout>
     </Router>
