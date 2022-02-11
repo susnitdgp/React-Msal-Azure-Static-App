@@ -43,6 +43,10 @@ export const loginRequest = {
  scopes: ["openid"]
 };
 
+export const funtionRequest = {
+  scopes: ["api://581c4b1d-c860-48a1-b57f-c4ac499338ef/Function.Invoke"]
+ };
+
 export const appRoles = {
   Pradip_BPM_FileRead: "Pradip.BPM.FileRead",
   Pradip_Portal_Read: "Pradip.Portal.Read"
