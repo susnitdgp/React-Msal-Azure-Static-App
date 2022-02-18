@@ -32,7 +32,7 @@ export const AzureStorageContent = () => {
    return(
       <>
 
-      <Card title="Project Management" bordered={false} style={{ width: 800 }}>
+      <Card title="Project Management" bordered={true} style={{ width: 800 }}>
       
 
       <h5 className="card-title">Welcome {name}</h5>
