@@ -4,8 +4,10 @@ import { storageRequest } from "./AuthConfig";
 import { Card ,Button} from 'antd';
 import { Tabs } from 'antd';
 import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
+import { Steps } from 'antd';
+import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
 
-
+const { Step } = Steps;
 const { TabPane } = Tabs;
 
 
@@ -32,7 +34,14 @@ export const AzureStorageContent = () => {
    return(
       <>
 
-      <Card title="Project Management" bordered={true} style={{ width: 800 }}>
+      <Card title="Project Management" bordered={true} style={{ width: "100%" }}>
+
+      <Steps>
+        <Step status="finish" title="Login" icon={<UserOutlined />} />
+        <Step status="finish" title="Verification" icon={<SolutionOutlined />} />
+        <Step status="process" title="Pay" icon={<LoadingOutlined />} />
+        <Step status="wait" title="Done" icon={<SmileOutlined />} />
+      </Steps>
       
 
       <h5 className="card-title">Welcome {name}</h5>
