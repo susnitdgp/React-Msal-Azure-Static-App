@@ -35,7 +35,7 @@ function App() {
   const handleMenuClick = () => history.push('/finance');
 
   return (
-    <Router>
+    <Router basename="/React-Msal-Azure-Static-App">
     <Layout className="mainLayout">
     <Header style={{borderBottom: "1px solid #1890ff"}}>
         <AppHeader/>
