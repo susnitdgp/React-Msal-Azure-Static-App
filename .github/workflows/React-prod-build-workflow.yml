@@ -16,10 +16,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
        node-version: 12.x
-    - name: Install dependencies
+    - name: Install NPM dependencies
       run: npm install    
       
-    - name: Generate build
+    - name: Generate React build Artifact
       run: npm run build
 
       # Share artifact inside workflow
@@ -29,7 +29,7 @@ jobs:
        name: react-github-actions-build
        path: build
     
-    - name: Deploy to Githib Pages
+    - name: Deploy to Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
