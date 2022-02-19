@@ -7,6 +7,8 @@ import { AppleOutlined, AndroidOutlined } from '@ant-design/icons';
 import { Steps } from 'antd';
 import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
 
+import { FetchData } from "./FetchData";
+
 const { Step } = Steps;
 const { TabPane } = Tabs;
 
@@ -30,6 +32,7 @@ export const AzureStorageContent = () => {
       setAccessToken(response.accessToken);
     });
   }
+
   
    return(
       <>
@@ -63,7 +66,9 @@ export const AzureStorageContent = () => {
           Tab 2
         </TabPane>
         <TabPane tab="Other Department" key="3">
-          Tab 3
+          
+        <FetchData/>
+
         </TabPane>
       </Tabs>
 
