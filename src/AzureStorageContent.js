@@ -8,6 +8,7 @@ import { Steps } from 'antd';
 import { UserOutlined, SolutionOutlined, LoadingOutlined, SmileOutlined } from '@ant-design/icons';
 
 import { FetchData } from "./FetchData";
+import { FetchProject } from "./FetchProject";
 
 const { Step } = Steps;
 const { TabPane } = Tabs;
@@ -60,7 +61,9 @@ export const AzureStorageContent = () => {
           Project Management
         </span>
       } key="1">
-          Tab 1
+          
+            <FetchProject/>
+          
         </TabPane>
         <TabPane tab="Finance Data" disabled key="2">
           Tab 2
