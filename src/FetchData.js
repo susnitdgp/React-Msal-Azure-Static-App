@@ -9,7 +9,10 @@ export const FetchData=()=>{
     useEffect(() => {
         // GET request using axios inside useEffect React hook
         axios.get('https://api.npms.io/v2/search?q=react')
-            .then(response => setTotal(response.data.total));
+            .then(response => {
+                console.log(response.data);
+                setTotal(response.data.total);
+            });
     
         // empty dependency array means this effect will only run once (like componentDidMount in classes)
     }, []);

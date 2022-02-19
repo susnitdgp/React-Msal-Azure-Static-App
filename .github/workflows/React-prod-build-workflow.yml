@@ -23,13 +23,13 @@ jobs:
       run: npm run build
 
       # Share artifact inside workflow
-    - name: Share artifact inside workflow
+    - name: Upload artifact for distribution
       uses: actions/upload-artifact@v2
       with:
        name: react-github-actions-build
        path: build
     
-    - name: Deploy
+    - name: Deploy to Githib Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
