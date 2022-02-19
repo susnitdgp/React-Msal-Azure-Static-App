@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "axios":"0.26.0",
+    "axios-progress-bar":"1.2.0",
     "@ant-design/icons": "^4.7.0",
     "@azure/msal-browser": "2.21.0",
     "@azure/msal-react": "1.2.0",
