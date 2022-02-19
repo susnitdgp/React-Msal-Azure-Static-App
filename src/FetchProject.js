@@ -76,14 +76,29 @@ const columns = [
 
 export const FetchProject=(props)=>{
 
-return (
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
-    <div>
+    const showModal = () => {
+        setIsModalVisible(true);
+    };
+    
+    const handleOk = () => {
+        setIsModalVisible(false);
+    };
+    
+    const handleCancel = () => {
+        setIsModalVisible(false);
+    };
 
-        <Table columns={columns} dataSource={data} />
 
-    </div>
+    return (
 
-)
+        <div>
+
+            <Table columns={columns} dataSource={data} />
+
+        </div>
+
+    )
 
 }
