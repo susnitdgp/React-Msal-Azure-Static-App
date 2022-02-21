@@ -37,7 +37,7 @@ function App() {
   return (
     <Router basename="/React-Msal-Azure-Static-App">
     <Layout className="mainLayout">
-    <Header style={{borderBottom: "1px solid #1890ff"}}>
+    <Header style={{borderBottom: "2px solid #f8f8f8"}}>
         <AppHeader/>
     </Header>
 
