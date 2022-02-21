@@ -28,19 +28,18 @@ export const RouteGuard = ({ Component, ...props }) => {
     return (
         <>
             {
-                isAuthorized
+                    isAuthorized
                     ?
                     <Route {...props} render={routeProps => <Component {...routeProps} />} />
                     :
                     <Card title="Finance Details" bordered={true} style={{ width: "100%" }}>
-                        <Result
-                        status="403"
-                        title="403"
-                        subTitle="Sorry, you are not authorized to access this page."
-                        extra={<Button type="primary">Back Home</Button>}
-                        />
+                    <Result
+                    status="403"
+                    title="403"
+                    subTitle="Sorry, you are not-authorized to access this page."
+                    extra={<Button type="primary">Back Home</Button>}
+                    />
                     </Card>
-                    
                     
             }
         </>
