@@ -7,12 +7,37 @@ import {
 
 import { SignInButton } from './SignInButtonRedirect';
 import { Anchor, Drawer, Button } from 'antd';
-import { ProfileContent } from './ProfileContent';
+import { useIsAuthenticated } from "@azure/msal-react";
+import { SignOutButton } from "./SignOutRedirect";
+import { funtionRequest } from "./AuthConfig";
 
 const { Link } = Anchor;
 
 function AppHeader() {
+  const isAuthenticated = useIsAuthenticated();
+
+  const { instance, accounts, inProgress } = useMsal();
+  const currentAccount = instance.getActiveAccount();
+  const name = accounts[0] && accounts[0].name;
+
   const [visible, setVisible] = useState(false);
+
+  function RequestAccessToken() {
+    
+        const request = {
+            ...funtionRequest,
+            account: accounts[0]
+        };
+
+        // Silently acquires an access token which is then attached to a request for Microsoft Graph data
+        instance.acquireTokenSilent(request).then((response) => {
+            setAccessToken(response.accessToken);
+        }).catch((e) => {
+            instance.acquireTokenPopup(request).then((response) => {
+                setAccessToken(response.accessToken);
+            });
+        });
+  }
 
   const showDrawer = () => {
     setVisible(true);
@@ -39,14 +64,23 @@ function AppHeader() {
             <Link href="#pricing" title="Pricing" />
             <Link href="#contact" title="Contact" />
           </Anchor>
-          <UnauthenticatedTemplate>
-        <p>You are not signed in! Please sign in.</p>
-        <SignInButton />
-      </UnauthenticatedTemplate>
-      <AuthenticatedTemplate>
-        <p>You are signed in!</p>
-        <ProfileContent />
-      </AuthenticatedTemplate>
+          
+          
+          <div style={{border: "1px solid grey"}}>
+            <UnauthenticatedTemplate>
+            <p>You are not signed in! Please sign in.</p>
+            <SignInButton />
+          </UnauthenticatedTemplate>
+          <AuthenticatedTemplate>
+            <p>You are signed in!</p>
+            <h5 className="card-title">Welcome {name}</h5> 
+            {currentAccount.idTokenClaims['email']}
+            <h4>APP Role: {currentAccount.idTokenClaims['roles']}</h4>
+            { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
+          </AuthenticatedTemplate>
+        </div>
+
+
         </div>
         <div className="mobileVisible">
           <Button type="primary" onClick={showDrawer}>
