@@ -75,7 +75,7 @@ function AppHeader() {
             <p>You are signed in!</p>
             <h5 className="card-title">Welcome {name}</h5> 
             
-            <h4>APP Role: {currentAccount.idTokenClaims['roles']}</h4>
+           
             { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
           </AuthenticatedTemplate>
         </div>
