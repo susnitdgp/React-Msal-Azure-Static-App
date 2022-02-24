@@ -4,31 +4,22 @@ import {
   Route,
   Switch,
   Link,
-  Prompt,
+  useHistory
 } from 'react-router-dom';
-import { useHistory } from 'react-router-dom';
-import { PageLayout } from './PageLayout';
+
 import { RouteGuard } from './RouteGuard';
 import { appRoles } from './AuthConfig';
-import { SignInButton } from './SignInButtonRedirect';
+import  HomePage  from './HomePage';
 import AppHeader from './Header';
 import AppFooter from './Footer';
-import {
-  AuthenticatedTemplate,
-  UnauthenticatedTemplate,
-  useMsal,
-} from '@azure/msal-react';
-import { ProfileContent } from './ProfileContent';
+
 import { TodoList } from './ToDoList';
 import { AzureStorageContent } from './AzureStorageContent';
-import { Layout, Menu, Divider, Button } from 'antd';
+import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from '@ant-design/icons';
-import { Row, Col } from 'antd';
+
+
+
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
@@ -79,23 +70,15 @@ function App() {
               style={{ marginTop: '100px', padding: '0 24px', minHeight: 480 }}
             >
               <Switch>
-                <Route exact path="/">
-                  <PageLayout>
-                    <AuthenticatedTemplate>
-                      <p>You are signed in!</p>
-                      <ProfileContent />
-                    </AuthenticatedTemplate>
-                    <Divider />
-                    <UnauthenticatedTemplate>
-                      <p>You are not signed in! Please sign in.</p>
-                      <SignInButton />
-                    </UnauthenticatedTemplate>
-                  </PageLayout>
+                <Route exact path="/" roles={[appRoles.PUBLIC]} component={HomePage}>
+
+                  
+
                 </Route>
                 <RouteGuard
                   exact
                   path="/finance"
-                  roles={[appRoles.Pradip_BPM_FileRead]}
+                  roles={[appRoles.VR_Finance_Coordinator]}
                   component={TodoList}>
 
                 </RouteGuard>
@@ -106,9 +89,10 @@ function App() {
                   component={AzureStorageContent}>
 
                   </RouteGuard>
-                <Route path="*">
-                  <NoMatch />
-                </Route>
+                <RouteGuard path="*" roles={[appRoles.PUBLIC]} component={NoMatch}>
+                 
+                </RouteGuard>
+
               </Switch>
             </Content>
           </Layout>

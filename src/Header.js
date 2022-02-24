@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import {
+  AuthenticatedTemplate,
+  UnauthenticatedTemplate,
+  useMsal,
+} from '@azure/msal-react';
 
+import { SignInButton } from './SignInButtonRedirect';
 import { Anchor, Drawer, Button } from 'antd';
+import { ProfileContent } from './ProfileContent';
 
 const { Link } = Anchor;
 
@@ -20,7 +27,7 @@ function AppHeader() {
       <div className="header">
         <div className="logo">
           <i className="fas fa-bolt"></i>
-          <a href="http://google.com">Tech</a>
+          <a href="http://google.com">Vendor Rating</a>
         </div>
         <div className="mobileHidden">
           <Anchor targetOffset="65">
@@ -32,6 +39,14 @@ function AppHeader() {
             <Link href="#pricing" title="Pricing" />
             <Link href="#contact" title="Contact" />
           </Anchor>
+          <UnauthenticatedTemplate>
+        <p>You are not signed in! Please sign in.</p>
+        <SignInButton />
+      </UnauthenticatedTemplate>
+      <AuthenticatedTemplate>
+        <p>You are signed in!</p>
+        <ProfileContent />
+      </AuthenticatedTemplate>
         </div>
         <div className="mobileVisible">
           <Button type="primary" onClick={showDrawer}>

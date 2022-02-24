@@ -8,12 +8,13 @@ export const RouteGuard = ({ Component, ...props }) => {
     const { instance } = useMsal();
     const [isAuthorized, setIsAuthorized] = useState(false);
 
-    const onLoad = async () => {
+    const onLoad =() => {
         const currentAccount = instance.getActiveAccount();
+        console.log(currentAccount);
 
         if (currentAccount && currentAccount.idTokenClaims['roles']) {
-            let intersection = props.roles
-                .filter(role => currentAccount.idTokenClaims['roles'].includes(role));
+            let intersection = props.roles.filter(role => currentAccount.idTokenClaims['roles'].includes(role) || role === 'PUBLIC');
+            console.log("Intersection: " + intersection);
 
             if (intersection.length > 0) {
                 setIsAuthorized(true);
@@ -23,7 +24,7 @@ export const RouteGuard = ({ Component, ...props }) => {
 
     useEffect(() => {
         onLoad();
-    }, [instance]);
+    }, []);
 
     return (
         <>
