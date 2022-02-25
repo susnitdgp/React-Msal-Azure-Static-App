@@ -3,9 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Link,
-  useHistory
-} from 'react-router-dom';
+  Link
+ } from 'react-router-dom';
 
 import { RouteGuard } from './RouteGuard';
 import { appRoles } from './AuthConfig';
@@ -25,8 +24,7 @@ const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
 
 function App() {
-  const history = useHistory();
-  const handleMenuClick = () => history.push('/finance');
+  
 
   return (
     <Router basename="/React-Msal-Azure-Static-App">
@@ -60,7 +58,7 @@ function App() {
                   <Menu.Item key="5">
                     <Link to="/other">Other Menu</Link>
                   </Menu.Item>
-                  <Menu.Item disabled={true} key="6" onClick={handleMenuClick}>
+                  <Menu.Item disabled={true} key="6">
                     Button Click
                   </Menu.Item>
                 </SubMenu>

@@ -64,8 +64,7 @@ function AppHeader() {
             <Link href="#pricing" title="Pricing" />
             <Link href="#contact" title="Contact" />
           </Anchor>
-          
-          
+
           <div style={{border: "1px solid grey"}}>
             <UnauthenticatedTemplate>
             <p>You are not signed in! Please sign in.</p>
@@ -80,6 +79,9 @@ function AppHeader() {
           </AuthenticatedTemplate>
         </div>
 
+          
+          
+        
 
         </div>
         <div className="mobileVisible">
