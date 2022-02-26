@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{lazy, Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -22,6 +22,12 @@ import { UserOutlined } from '@ant-design/icons';
 
 const { SubMenu } = Menu;
 const { Header, Content, Footer, Sider } = Layout;
+
+const NoMatch = (
+  lazy(() => (
+    import('./NoMatch')
+  ))
+)
 
 function App() {
   
@@ -67,6 +73,7 @@ function App() {
             <Content
               style={{ marginTop: '100px', padding: '0 24px', minHeight: 480 }}
             >
+              <Suspense fallback={<LoadingMessage />}>
               <Switch>
                 <Route exact path="/" roles={[appRoles.PUBLIC]} component={HomePage}>
 
@@ -87,11 +94,13 @@ function App() {
                   component={AzureStorageContent}>
 
                   </RouteGuard>
-                <RouteGuard path="*" roles={[appRoles.PUBLIC]} component={NoMatch}>
+                <Route path="*" roles={[appRoles.PUBLIC]} component={NoMatch}>
                  
-                </RouteGuard>
+                </Route>
 
               </Switch>
+              </Suspense>
+
             </Content>
           </Layout>
         </Content>
@@ -104,12 +113,10 @@ function App() {
   );
 }
 
-function NoMatch() {
-  return (
-    <div>
-      <h2>No Match</h2>
-    </div>
-  );
-}
+
+
+const LoadingMessage = () => (
+  "I'm loading..."
+)
 
 export default App;

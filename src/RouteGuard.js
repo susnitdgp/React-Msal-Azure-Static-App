@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { useMsal } from '@azure/msal-react';
 import { Result, Button, Card } from 'antd';
-import { useHistory } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 
 export const RouteGuard = ({ Component, ...props }) => {
     
@@ -10,9 +10,11 @@ export const RouteGuard = ({ Component, ...props }) => {
   const [isAuthorized, setIsAuthorized] = useState(false);
 
   const history = useHistory();
+  
 
   const handleMenuClick = () => {
     history.push('/');
+    
   };
 
   const onLoad = () => {
