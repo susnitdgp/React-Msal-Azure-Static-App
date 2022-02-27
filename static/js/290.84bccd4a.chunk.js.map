@@ -1,1 +1,0 @@
-{"version":3,"file":"static/js/290.84bccd4a.chunk.js","mappings":"+HAaA,UAXA,WACE,OACE,4BACE,mBACA,mBACA,mBACA","sources":["NoMatch.js"],"sourcesContent":["import React from 'react';\n\nfunction NoMatch() {\n  return (\n    <div>\n      <br/>\n      <br/>\n      <br/>\n      <h2>No Match</h2>\n    </div>\n  );\n}\n\nexport default NoMatch;"],"names":[],"sourceRoot":""}
