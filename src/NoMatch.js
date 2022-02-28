@@ -16,7 +16,7 @@ function NoMatch() {
 }
 
 function Bomb() {
-  throw new Error('CABOOM ')
+  throw new Error('CABOOM----');
 }
 
 function ErrorFallback({error, resetErrorBoundary}) {
