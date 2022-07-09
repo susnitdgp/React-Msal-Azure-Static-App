@@ -17,7 +17,7 @@ import { AzureStorageContent } from './AzureStorageContent';
 import { Layout, Menu } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 
-
+import {VinodPM} from './VinodPM';
 
 
 const { SubMenu } = Menu;
@@ -67,6 +67,9 @@ function App() {
                   <Menu.Item disabled={true} key="6">
                     Button Click
                   </Menu.Item>
+                  <Menu.Item key="10">
+                    <Link to="/vinod-PM">Vinod-PM</Link>
+                  </Menu.Item>
                 </SubMenu>
               </Menu>
             </Sider>
@@ -76,10 +79,12 @@ function App() {
               <Suspense fallback={<LoadingMessage />}>
               <Switch>
                 <Route exact path="/" roles={[appRoles.PUBLIC]} component={HomePage}>
-
-                  
-
                 </Route>
+
+                <Route exact path="/vinod-PM" roles={[appRoles.PUBLIC]} component={VinodPM}>
+                  </Route>
+
+
                 <RouteGuard
                   exact
                   path="/finance"
