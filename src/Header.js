@@ -64,6 +64,9 @@ function AppHeader() {
             <Link href="#pricing" title="Pricing" />
             <Link href="#contact" title="Contact" />
           </Anchor>
+          
+
+          {/* Block Comment here 
 
           <div style={{border: "1px solid grey"}}>
             <UnauthenticatedTemplate>
@@ -74,10 +77,13 @@ function AppHeader() {
             <p>You are signed in!</p>
             <h5 className="card-title">Welcome {name}</h5> 
             
-           
+            
+
             { isAuthenticated ? <SignOutButton /> : <SignInButton /> }
           </AuthenticatedTemplate>
         </div>
+
+        */}
 
           
           
